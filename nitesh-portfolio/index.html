@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nitesh Singh — Network &amp; Security Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css"/>
+</head>
+<body>
+
+<canvas id="dot-canvas"></canvas>
+
+<!-- ══ EXPERIENCE DETAIL PAGE ══ -->
+<div id="exp-detail-page">
+  <div class="detail-nav">
+    <button class="detail-back" onclick="closeDetail()">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+      Back to experiences
+    </button>
+  </div>
+  <div class="detail-content" id="detail-content"></div>
+</div>
+
+<!-- ══ RESUME PREVIEW MODAL ══ -->
+<div id="resume-modal" style="display:none;position:fixed;inset:0;z-index:999;background:rgba(5,8,12,0.94);backdrop-filter:blur(8px);align-items:center;justify-content:center;">
+  <div style="width:min(860px,95vw);max-height:92vh;background:#161b22;border:1px solid #30363d;border-radius:12px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 0 60px rgba(57,211,83,.15);">
+    <!-- Modal header -->
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 20px;background:#0d1117;border-bottom:1px solid #30363d;">
+      <span style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#7d8590;">📄 nitesh-resume.docx — Preview</span>
+      <div style="display:flex;gap:10px;align-items:center;">
+        <a href="assets/nitesh-resume.docx" download style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#39d353;border:1px solid rgba(57,211,83,.4);background:rgba(57,211,83,.07);padding:6px 14px;border-radius:5px;text-decoration:none;transition:all .2s;" onmouseover="this.style.background='rgba(57,211,83,.14)'" onmouseout="this.style.background='rgba(57,211,83,.07)'">⬇ Download</a>
+        <button onclick="closeResume()" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#7d8590;border:1px solid #30363d;background:transparent;padding:6px 14px;border-radius:5px;cursor:pointer;transition:all .15s;" onmouseover="this.style.color='#ff6b6b';this.style.borderColor='#ff6b6b'" onmouseout="this.style.color='#7d8590';this.style.borderColor='#30363d'">[ ESC ] Close</button>
+      </div>
+    </div>
+    <!-- Resume content rendered as HTML -->
+    <div style="overflow-y:auto;padding:40px 60px;background:#fff;flex:1;" id="resume-preview-body">
+
+      <!-- NAME -->
+      <div style="text-align:center;margin-bottom:6px;">
+        <div style="font-family:Calibri,serif;font-size:28px;font-weight:700;color:#111;letter-spacing:-.5px;">Nitesh Singh</div>
+      </div>
+      <!-- CONTACT -->
+      <div style="text-align:center;font-family:Calibri,serif;font-size:12px;color:#444;margin-bottom:14px;padding-bottom:10px;border-bottom:2px solid #0072BC;">
+        niteshns287168@gmail.com &nbsp;|&nbsp;
+        <a href="https://linkedin.com/in/nitesh-singh-115aaa258" style="color:#0072BC;">linkedin.com/in/nitesh-singh-115aaa258</a> &nbsp;|&nbsp;
+        <a href="https://github.com/niteshsingh6217" style="color:#0072BC;">github.com/niteshsingh6217</a> &nbsp;|&nbsp;
+        Vadodara, Gujarat, India
+      </div>
+
+      <!-- EDUCATION -->
+      <div style="color:#0072BC;font-family:Calibri,serif;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border-bottom:1px solid #bbb;padding-bottom:3px;margin-bottom:8px;">Education</div>
+      <div style="display:flex;justify-content:space-between;font-family:Calibri,serif;font-size:13px;margin-bottom:2px;">
+        <span><strong>Sigma University</strong> — Vadodara, Gujarat</span><span style="color:#555;">2025 – Present</span>
+      </div>
+      <div style="font-family:Calibri,serif;font-size:12px;color:#333;margin-bottom:8px;font-style:italic;">Bachelor of Technology in Information Technology &nbsp;|&nbsp; CGPA: <strong>7.66</strong></div>
+      <div style="display:flex;justify-content:space-between;font-family:Calibri,serif;font-size:13px;margin-bottom:2px;">
+        <span><strong>Parul University</strong> — Limbdi, Gujarat</span><span style="color:#555;">2021 – 2024</span>
+      </div>
+      <div style="font-family:Calibri,serif;font-size:12px;color:#333;margin-bottom:14px;font-style:italic;">Diploma in Information Technology &nbsp;|&nbsp; CGPA: <strong>8.35</strong></div>
+
+      <!-- EXPERIENCE -->
+      <div style="color:#0072BC;font-family:Calibri,serif;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border-bottom:1px solid #bbb;padding-bottom:3px;margin-bottom:8px;">Professional Experience</div>
+
+      <div style="display:flex;justify-content:space-between;font-family:Calibri,serif;font-size:13px;margin-bottom:1px;">
+        <span><strong>Alembic Pharmaceuticals Ltd.</strong> &nbsp;<span style="color:#555;font-size:12px;">Vadodara, Gujarat</span></span><span style="color:#555;font-size:12px;">Jul. 2024 – Present</span>
+      </div>
+      <div style="font-family:Calibri,serif;font-size:12px;color:#333;margin-bottom:4px;font-style:italic;">Network &amp; Security Engineer</div>
+      <ul style="font-family:Calibri,serif;font-size:12px;color:#333;margin:0 0 10px 18px;line-height:1.7;">
+        <li>Maintain and monitor LAN/WAN infrastructure across pharma campus ensuring 99%+ network uptime for 2,000+ endpoints.</li>
+        <li>Configure and manage Cisco Catalyst switches (2960/3560/9200/SG300), VLANs, STP, VTP, Port Security, and OSPFv2.</li>
+        <li>Manage Sophos Firewall policies and SD-WAN (Aruba Silver-peak) for secure perimeter and branch connectivity.</li>
+        <li>Monitor performance using OPManager dashboards; troubleshoot L1/L2 connectivity issues across the campus.</li>
+        <li>Maintain updated network topology documentation and device inventories using MS-Visio.</li>
+      </ul>
+
+      <div style="display:flex;justify-content:space-between;font-family:Calibri,serif;font-size:13px;margin-bottom:1px;">
+        <span><strong>Tecunique</strong> &nbsp;<span style="color:#555;font-size:12px;">Vadodara, Gujarat</span></span><span style="color:#555;font-size:12px;">Aug. 2023</span>
+      </div>
+      <div style="font-family:Calibri,serif;font-size:12px;color:#333;margin-bottom:4px;font-style:italic;">Web Developer Intern</div>
+      <ul style="font-family:Calibri,serif;font-size:12px;color:#333;margin:0 0 10px 18px;line-height:1.7;">
+        <li>Developed a customer portal as part of a live client project using Node.js, EJS, and MySQL.</li>
+        <li>Integrated multiple pre-built third-party APIs into the portal for enhanced functionality and real-time data.</li>
+      </ul>
+
+      <div style="display:flex;justify-content:space-between;font-family:Calibri,serif;font-size:13px;margin-bottom:1px;">
+        <span><strong>Google</strong> &nbsp;<span style="color:#555;font-size:12px;">Sigma University, Vadodara</span></span><span style="color:#555;font-size:12px;">2024 – Present</span>
+      </div>
+      <div style="font-family:Calibri,serif;font-size:12px;color:#333;margin-bottom:4px;font-style:italic;">Google Student Ambassador</div>
+      <ul style="font-family:Calibri,serif;font-size:12px;color:#333;margin:0 0 14px 18px;line-height:1.7;">
+        <li>Represent Google at Sigma University — organize workshops and developer sessions on Google Cloud and developer tools.</li>
+        <li>Drive student enrollment in Google Cloud Skills Boost certification programs and developer events.</li>
+      </ul>
+
+      <!-- PROJECTS -->
+      <div style="color:#0072BC;font-family:Calibri,serif;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border-bottom:1px solid #bbb;padding-bottom:3px;margin-bottom:8px;">Projects</div>
+      <div style="font-family:Calibri,serif;font-size:13px;margin-bottom:2px;">
+        <strong>Vpay — Image-to-Text Converter</strong> &nbsp;<em style="font-size:12px;color:#444;">JavaScript, React, .NET, PHP, MySQL</em>
+        <span style="float:right;font-size:12px;color:#555;">Feb. 2023 – May 2023</span>
+      </div>
+      <ul style="font-family:Calibri,serif;font-size:12px;color:#333;margin:0 0 14px 18px;line-height:1.7;">
+        <li>Built a full-stack payment and product management web app with Google OAuth, email verification, and test payment gateway.</li>
+        <li>Developed admin panel with add/update/delete of products, role-based access control, and product rating system.</li>
+      </ul>
+
+      <!-- SKILLS -->
+      <div style="color:#0072BC;font-family:Calibri,serif;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border-bottom:1px solid #bbb;padding-bottom:3px;margin-bottom:8px;">Technical Skills</div>
+      <table style="font-family:Calibri,serif;font-size:12px;color:#333;width:100%;border-collapse:collapse;">
+        <tr><td style="padding:2px 0;width:160px;font-weight:700;color:#111;">Networking</td><td style="padding:2px 0;">Cisco IOS/NX-OS, VLAN/STP/VTP, OSPF, SD-WAN, Sophos Firewall, VMware</td></tr>
+        <tr><td style="padding:2px 0;font-weight:700;color:#111;">Programming</td><td style="padding:2px 0;">Python, C++, C, JavaScript</td></tr>
+        <tr><td style="padding:2px 0;font-weight:700;color:#111;">Web &amp; Backend</td><td style="padding:2px 0;">Node.js, React, EJS, PHP, REST APIs</td></tr>
+        <tr><td style="padding:2px 0;font-weight:700;color:#111;">Databases</td><td style="padding:2px 0;">MySQL, MongoDB, SQL</td></tr>
+        <tr><td style="padding:2px 0;font-weight:700;color:#111;">Tools</td><td style="padding:2px 0;">Git, GitHub, OPManager, Aruba Silver-peak, MS-Visio, Postman, VS Code</td></tr>
+      </table>
+
+    </div>
+  </div>
+</div>
+
+<!-- ══ TERMINAL OVERLAY ══ -->
+<div id="terminal-overlay">
+  <div class="terminal-window">
+    <div class="terminal-titlebar">
+      <div class="t-dot close" id="t-close-dot"></div>
+      <div class="t-dot min"></div><div class="t-dot max"></div>
+      <span class="t-title" id="t-title">bash — 80×24</span>
+    </div>
+    <div class="terminal-body" id="terminal-body"></div>
+    <div class="terminal-footer">
+      <span class="t-status">conn: <span>ESTABLISHED</span>&nbsp;&nbsp;enc: <span>TLS 1.3</span>&nbsp;&nbsp;ttl: <span>64</span></span>
+      <button class="t-close-btn" id="t-close-btn">[ ESC ] dismiss</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══ NAV — removed Home & Skills ══ -->
+<nav>
+  <ul>
+    <li><a href="#about">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><div id="secure-badge"><div class="secure-dot"></div>SECURE</div></li>
+  </ul>
+</nav>
+
+<!-- ══ HERO ══ -->
+<div class="page">
+  <section id="hero">
+    <div class="hero-left">
+      <div class="terminal-prompt">
+        <span class="arrow">❯</span>
+        <span class="path">~/portfolio</span>
+        <span class="dollar">$</span>
+        <span class="cmd" id="typed-cmd"></span>
+        <span class="terminal-cursor"></span>
+      </div>
+      <h1 class="hero-name">Nitesh <span class="accent">Singh</span></h1>
+      <div class="hero-tags">
+        <span>Network Eng.</span><span class="sep">•</span>
+        <span>Security Eng.</span><span class="sep">•</span>
+        <span>Firewall / IDS</span><span class="sep">•</span>
+        <span>Cisco / SD-WAN</span>
+      </div>
+      <p class="hero-bio">Securing infrastructure, hardening networks, and hunting threats across enterprise pharma environments. Specialized in Cisco switching, firewall management, VLAN design, and building resilient LAN/WAN systems that stay up when everything else goes down.</p>
+      <div class="hero-btns">
+        <a href="https://github.com/niteshsingh6217" target="_blank" class="btn btn-green" data-action="github">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+          GitHub
+        </a>
+        <a href="https://linkedin.com/in/nitesh-singh-115aaa258" target="_blank" class="btn btn-outline" data-action="linkedin">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+        <a href="#" class="btn btn-outline" data-action="email">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          Copy Email
+        </a>
+        <a href="#" class="btn btn-outline" data-action="resume">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>
+          Resume
+        </a>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <div class="photo-card">
+        <img src="img/bluet.jpeg" alt="Nitesh Singh" loading="lazy" decoding="async"
+             onerror="this.style.display='none';this.parentElement.style.background='var(--bg3)';"/>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ══ PROFESSIONAL EXPERIENCE — Order: Google → Alembic → Tecunique ══ -->
+<div class="section-wrap" id="about">
+  <div class="section-header reveal">
+    <h2 class="section-title">Professional <span style="color:var(--green)">Experience</span></h2>
+    <div class="section-line"></div>
+  </div>
+  <p class="section-sub reveal">// Click any role to view full details</p>
+
+  <!-- 1. Google -->
+  <div class="exp-card reveal" onclick="openDetail('google')">
+    <div class="exp-logo exp-logo-google">
+      <img src="img/google-logo.svg" alt="Google"/>
+    </div>
+    <div class="exp-body">
+      <div class="exp-meta">
+        <div>
+          <h3 class="exp-title">Google Student Ambassador</h3>
+          <span class="exp-company">Google</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:5px;">
+          <div class="exp-date">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            2024 – Present
+          </div>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;padding:2px 8px;border-radius:3px;background:rgba(86,180,245,0.1);color:var(--cyan);border:1px solid rgba(86,180,245,0.3);letter-spacing:.04em;">PART-TIME</span>
+        </div>
+      </div>
+      <p class="exp-desc">Represent Google at Sigma University — organizing workshops, developer sessions, and events helping students explore Google Cloud and developer tools.</p>
+      <div class="exp-tags">
+        <span class="stack-tag">Google Cloud</span>
+        <span class="stack-tag">Developer Relations</span>
+        <span class="stack-tag">Community Building</span>
+        <span class="stack-tag">Public Speaking</span>
+      </div>
+      <div class="exp-arrow">View full details →</div>
+    </div>
+  </div>
+
+  <!-- 2. Alembic -->
+  <div class="exp-card reveal" onclick="openDetail('alembic')">
+    <div class="exp-logo exp-logo-alembic">
+      <img src="img/alembic-logo.svg" alt="Alembic Pharmaceuticals"/>
+    </div>
+    <div class="exp-body">
+      <div class="exp-meta">
+        <div>
+          <h3 class="exp-title">Network &amp; Security Engineer</h3>
+          <span class="exp-company">Alembic Pharmaceuticals Ltd.</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:5px;">
+          <div class="exp-date">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Jul 2024 – Present
+          </div>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;padding:2px 8px;border-radius:3px;background:rgba(57,211,83,0.1);color:var(--green);border:1px solid rgba(57,211,83,0.3);letter-spacing:.04em;">FULL-TIME</span>
+        </div>
+      </div>
+      <p class="exp-desc">Maintain and secure enterprise LAN/WAN infrastructure across a large pharma campus. Configure Cisco switches, manage Sophos Firewall and SD-WAN, and monitor network performance using OPManager and Aruba Silver-peak.</p>
+      <div class="exp-tags">
+        <span class="stack-tag">Cisco Switches</span>
+        <span class="stack-tag">VLAN / STP</span>
+        <span class="stack-tag">OSPF</span>
+        <span class="stack-tag">Sophos Firewall</span>
+        <span class="stack-tag">OPManager</span>
+        <span class="stack-tag">SD-WAN</span>
+      </div>
+      <div class="exp-arrow">View full details →</div>
+    </div>
+  </div>
+
+  <!-- 3. Tecunique -->
+  <div class="exp-card reveal" onclick="openDetail('tecunique')">
+    <div class="exp-logo" style="background:#1a1a2e;border-color:#2d2d4e;">
+      <img src="img/tecunique-logo.svg" alt="Tecunique"/>
+    </div>
+    <div class="exp-body">
+      <div class="exp-meta">
+        <div>
+          <h3 class="exp-title">Web Developer Intern</h3>
+          <span class="exp-company">Tecunique</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:5px;">
+          <div class="exp-date">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Aug 2023
+          </div>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;padding:2px 8px;border-radius:3px;background:rgba(86,180,245,0.1);color:var(--cyan);border:1px solid rgba(86,180,245,0.3);letter-spacing:.04em;">INTERNSHIP</span>
+        </div>
+      </div>
+      <p class="exp-desc">Developed a customer portal on a live client project using Node.js, EJS templating and MySQL. Integrated multiple third-party APIs into the production application.</p>
+      <div class="exp-tags">
+        <span class="stack-tag">Node.js</span>
+        <span class="stack-tag">EJS</span>
+        <span class="stack-tag">MySQL</span>
+        <span class="stack-tag">REST APIs</span>
+      </div>
+      <div class="exp-arrow">View full details →</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ PROJECTS ══ -->
+<div class="projects-outer" id="projects">
+  <div class="projects-header">
+    <div class="section-header reveal">
+      <h2 class="section-title">Featured <span style="color:var(--green)">Projects</span></h2>
+      <div class="section-line"></div>
+    </div>
+    <p class="section-sub reveal">// Network Security, Web &amp; Full-Stack Applications</p>
+  </div>
+  <div class="projects-grid">
+
+    <div class="project-card featured reveal">
+      <div class="proj-top">
+        <div><div class="proj-category">Full-Stack · FinTech</div><div class="proj-name">Vpay</div></div>
+        <a href="#" class="proj-link"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+      </div>
+      <p class="proj-desc">Image-to-text converter with Google OAuth, email verification, test payment gateway, product rating system, and a full admin panel for product management with role-based access control.</p>
+      <div class="proj-footer">
+        <div class="proj-lang"><div class="lang-dot" style="background:#f7df1e"></div>React, .NET, PHP, MySQL</div>
+        <span class="proj-date">Feb – May 2023</span>
+      </div>
+    </div>
+
+    <div class="project-card reveal">
+      <div class="proj-top">
+        <div><div class="proj-category">Network · Monitoring</div><div class="proj-name">Campus Network Dashboard</div></div>
+      </div>
+      <p class="proj-desc">Network monitoring and topology visualization tool for tracking switch health, VLAN status, and uptime across the pharma campus infrastructure using Python and OPManager APIs.</p>
+      <div class="proj-footer">
+        <div class="proj-lang"><div class="lang-dot" style="background:#3572A5"></div>Python, REST APIs, Cisco IOS</div>
+        <span class="proj-date">2024</span>
+      </div>
+    </div>
+
+    <div class="project-card reveal">
+      <div class="proj-top">
+        <div><div class="proj-category">Web · Portal</div><div class="proj-name">Customer Portal (Tecunique)</div></div>
+      </div>
+      <p class="proj-desc">Production customer portal — full CRUD functionality, MySQL backend, third-party API integrations, and server-side rendering with EJS.</p>
+      <div class="proj-footer">
+        <div class="proj-lang"><div class="lang-dot" style="background:#68a063"></div>Node.js, EJS, MySQL</div>
+        <span class="proj-date">Aug 2023</span>
+      </div>
+    </div>
+
+    <div class="project-card reveal">
+      <div class="proj-top">
+        <div><div class="proj-category">Security · Network</div><div class="proj-name">Firewall Audit Scripts</div></div>
+      </div>
+      <p class="proj-desc">Python scripts to audit Sophos Firewall rule sets, identify redundant/conflicting policies, and generate structured reports for security compliance reviews.</p>
+      <div class="proj-footer">
+        <div class="proj-lang"><div class="lang-dot" style="background:#3572A5"></div>Python, Bash, Sophos API</div>
+        <span class="proj-date">2024</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══ CONTACT ══ -->
+<div class="section-wrap" id="contact">
+  <div class="section-header reveal">
+    <h2 class="section-title">Get In <span style="color:var(--green)">Touch</span></h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="contact-wrap">
+    <p class="contact-lead reveal">
+      Open to new opportunities in network engineering, security, and infrastructure. Whether you have a role, a project, or just want to connect — my inbox is always open.
+    </p>
+    <div class="contact-links reveal">
+      <a href="#" class="contact-link" data-action="email">
+        <svg class="link-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        <div>
+          <div>niteshns287168@gmail.com</div>
+          <div class="link-label">EMAIL — Click to copy</div>
+        </div>
+      </a>
+      <a href="https://linkedin.com/in/nitesh-singh-115aaa258" target="_blank" class="contact-link" data-action="linkedin">
+        <svg class="link-icon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        <div>
+          <div>linkedin.com/in/nitesh-singh-115aaa258</div>
+          <div class="link-label">LINKEDIN</div>
+        </div>
+      </a>
+      <a href="https://github.com/niteshsingh6217" target="_blank" class="contact-link" data-action="github">
+        <svg class="link-icon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+        <div>
+          <div>github.com/niteshsingh6217</div>
+          <div class="link-label">GITHUB</div>
+        </div>
+      </a>
+      <a href="#" class="contact-link" data-action="resume">
+        <svg class="link-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>
+        <div>
+          <div>View Resume</div>
+          <div class="link-label">DOCX — Preview &amp; Download</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <span>nitesh</span>.singh — Network &amp; Security Engineer · Built with <span>♥</span> &amp; terminal energy
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

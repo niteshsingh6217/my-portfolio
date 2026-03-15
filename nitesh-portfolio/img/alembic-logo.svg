@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48">
+  <!-- White rounded square background -->
+  <rect width="48" height="48" rx="10" ry="10" fill="#ffffff"/>
+  <!-- Blue "A" letterform -->
+  <text x="7" y="34" font-family="Arial Black, sans-serif" font-weight="900" font-size="28" fill="#0072BC">A</text>
+  <!-- Green double-chevron arrows -->
+  <polyline points="30,15 37,24 30,33" fill="none" stroke="#4CAF50" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <polyline points="36,15 43,24 36,33" fill="none" stroke="#4CAF50" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

@@ -189,21 +189,23 @@ async function typeCommand(cmd) {
 const rnd = (a, b) => Math.floor(Math.random() * (b - a + 1)) + a;
 
 async function runGithub() {
+  const win = window.open('', '_blank'); // open immediately to avoid popup blocker
   openTerminal('nmap — Network Mapper 7.94');
   await typeCommand('nmap -sV -p 443 github.com');
   await addLine('Nmap scan report for github.com (140.82.121.4)', 'info', 400);
   await addLine(`Host is up (0.0${rnd(10,40)}s latency).`, 'success', 600);
   await addLine('443/tcp open  https  TLS 1.3', 'success', 900);
   await addLine('[✓] Firewall PASS — opening github.com ...', 'success', 1200);
-  setTimeout(() => { closeTerminal(); window.open('https://github.com/niteshsingh6217', '_blank'); }, 1700);
+  setTimeout(() => { closeTerminal(); if (win) win.location.href = 'https://github.com/niteshsingh6217'; }, 1700);
 }
 async function runLinkedin() {
+  const win = window.open('', '_blank'); // open immediately to avoid popup blocker
   openTerminal('ssh — Secure Shell Handshake');
   await typeCommand('ssh -v user@linkedin.com -p 443');
   await addLine('Connection established.', 'success', 500);
   await addLine(`Fingerprint: SHA256:${btoa(Math.random().toString()).slice(0,28)}`, 'warn', 800);
   await addLine('[✓] TLS 1.3 tunnel up — redirecting ...', 'success', 1100);
-  setTimeout(() => { closeTerminal(); window.open('https://linkedin.com/in/nitesh-singh-115aaa258', '_blank'); }, 1600);
+  setTimeout(() => { closeTerminal(); if (win) win.location.href = 'https://linkedin.com/in/nitesh-singh-115aaa258'; }, 1600);
 }
 async function runEmail() {
   openTerminal('smtp-trace — MTA Session');

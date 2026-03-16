@@ -219,13 +219,29 @@ nav a:hover { color:var(--text); }
 .proj-date { font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--muted); }
 
 /* ══════════════ CONTACT ══════════════ */
-.contact-wrap { max-width:580px; }
+.contact-wrap { max-width:680px; }
 .contact-lead { font-size:15px; line-height:1.8; color:#8b949e; margin-bottom:32px; }
 .contact-links { display:flex; flex-direction:column; gap:10px; }
 .contact-link { display:flex; align-items:center; gap:14px; padding:15px 18px; background:var(--bg2); border:1px solid var(--border); border-radius:8px; text-decoration:none; color:var(--text); font-size:14px; transition:all .2s; }
 .contact-link:hover { border-color:var(--green); background:rgba(57,211,83,.04); transform:translateX(4px); }
 .contact-link .link-icon { color:var(--green); flex-shrink:0; }
 .contact-link .link-label { color:var(--muted); font-size:11px; font-family:'JetBrains Mono',monospace; }
+/* ══════════════ CONTACT FORM ══════════════ */
+.cf-form { margin-top:36px; background:var(--bg2); border:1px solid var(--border); border-radius:12px; padding:24px 26px; }
+.cf-form-header { margin-bottom:20px; }
+.cf-form-title { font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--green); letter-spacing:.05em; }
+.cf-row { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+.cf-group { display:flex; flex-direction:column; gap:7px; margin-bottom:14px; }
+.cf-label { font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--muted); letter-spacing:.08em; text-transform:uppercase; }
+.cf-input { background:var(--bg); border:1px solid var(--border); border-radius:7px; padding:11px 14px; color:var(--text); font-family:'Inter',sans-serif; font-size:14px; outline:none; transition:border-color .2s,box-shadow .2s; width:100%; }
+.cf-input::placeholder { color:#3d444d; }
+.cf-input:focus { border-color:var(--green); box-shadow:0 0 0 3px rgba(57,211,83,.08); }
+.cf-textarea { min-height:120px; resize:vertical; }
+.cf-footer { display:flex; align-items:center; gap:16px; flex-wrap:wrap; margin-top:4px; }
+#cf-result { font-family:'JetBrains Mono',monospace; font-size:12px; }
+#cf-result.success { color:var(--green); }
+#cf-result.error { color:var(--red); }
+
 footer { position:relative; z-index:1; text-align:center; padding:22px; color:var(--muted); font-size:12px; font-family:'JetBrains Mono',monospace; border-top:1px solid var(--border); }
 footer span { color:var(--green); }
 
@@ -242,6 +258,7 @@ footer span { color:var(--green); }
 }
 @media(max-width:768px){
   .page,.section-wrap,.ats-banner{ padding:0 24px; }
+  .cf-row { grid-template-columns:1fr; }
   #hero{ flex-direction:column-reverse; gap:28px; min-height:auto; padding-top:100px; }
   .hero-name{ font-size:36px; }
   nav ul{ gap:20px; }

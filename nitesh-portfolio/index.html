@@ -391,6 +391,34 @@
         </div>
       </a>
     </div>
+
+    <!-- ══ SEND A MESSAGE FORM ══ -->
+    <form id="contact-form" class="cf-form reveal" novalidate>
+      <div class="cf-form-header">
+        <span class="cf-form-title">// send_message.sh</span>
+      </div>
+      <div class="cf-row">
+        <div class="cf-group">
+          <label class="cf-label">name *</label>
+          <input type="text" name="name" class="cf-input" placeholder="Your name" required autocomplete="name">
+        </div>
+        <div class="cf-group">
+          <label class="cf-label">email *</label>
+          <input type="email" name="email" class="cf-input" placeholder="your@email.com" required autocomplete="email">
+        </div>
+      </div>
+      <div class="cf-group">
+        <label class="cf-label">message *</label>
+        <textarea name="message" class="cf-input cf-textarea" placeholder="What's on your mind..." required></textarea>
+      </div>
+      <div class="cf-footer">
+        <button type="submit" class="btn btn-green" id="cf-submit">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          Send Message
+        </button>
+        <div id="cf-result"></div>
+      </div>
+    </form>
   </div>
 </div>
 
@@ -399,5 +427,6 @@
 </footer>
 
 <script src="js/main.js"></script>
+<script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>

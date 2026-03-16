@@ -262,6 +262,45 @@ window.addEventListener('load', () => {
   }, 600);
 });
 
+// ══ CONTACT FORM ══
+const cfForm = document.getElementById('contact-form');
+const cfResult = document.getElementById('cf-result');
+const cfSubmit = document.getElementById('cf-submit');
+const CF_KEY = 'f5556a2d-8cd8-4820-9e4d-57b52b83d530';
+if (cfForm) {
+  cfForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    cfSubmit.disabled = true;
+    cfSubmit.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg> Sending...';
+    cfResult.className = '';
+    cfResult.textContent = '';
+    const fd = new FormData(cfForm);
+    const data = Object.fromEntries(fd);
+    data.access_key = CF_KEY;
+    data.subject = 'New message from Portfolio — ' + (data.name || 'Visitor');
+    data.from_name = 'Portfolio Contact Form';
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      const json = await res.json();
+      if (res.ok && json.success) {
+        cfResult.className = 'success';
+        cfResult.textContent = '[✓] Message sent — I\'ll get back to you soon.';
+        cfForm.reset();
+      } else { throw new Error(json.message || 'failed'); }
+    } catch {
+      cfResult.className = 'error';
+      cfResult.textContent = '[✗] Failed to send — please email directly.';
+    } finally {
+      cfSubmit.disabled = false;
+      cfSubmit.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg> Send Message';
+    }
+  });
+}
+
 // ══ SCROLL REVEAL ══
 const obs = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }), { threshold: .08 });
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
